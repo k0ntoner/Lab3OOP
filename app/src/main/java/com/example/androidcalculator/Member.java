@@ -52,17 +52,51 @@ public class Member {
         if(this.operand==null){
             this.operand="+";
         }
+        if(this.number==null){
+            this.number=number;
+            return;
+        }
         this.number+=number;
     }
     public void openInsideExpression(){
         insideExpression=new Expression();
     }
+    public double calculateResult(){
+        double result=Double.parseDouble(number);
+        if(scientistExpression!=null){
+            double insideResult=0;
+            if(insideExpression!=null) {
+                insideResult = insideExpression.calculateResult();
+            }
+            switch (scientistExpression){
+                case "sin(":
+                    result*=Math.sin(insideResult);
+                    break;
+                case "cos(":
+                    result*=Math.cos(insideResult);
+                    break;
+                case "log(":
+                    result*=Math.log(insideResult);
+                    break;
+                case "√(":
+                    result*=Math.sqrt(insideResult);
+                    break;
+                case "(":
+                    result*=insideResult;
+
+            }
+        }
+
+        return result;
+    }
+
     @Override
     public String toString(){
-        String result=new String(operand+number);
-        for(Member member:members){
-            result+=insideExpression.toString();
-        }
+        String result=new String(operand);
+        result+=number==null? "":number;
+        result+=scientistExpression==null?"":scientistExpression;
+        result+=insideExpression==null ? "":insideExpression.toString();
+
         return result;
     }
 }
