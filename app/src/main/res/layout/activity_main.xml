@@ -49,7 +49,7 @@
         <Button android:text="sin(" android:onClick="onButtonClick" />
         <Button android:text="cos(" android:onClick="onButtonClick" />
         <Button android:text="log(" android:onClick="onButtonClick" />
-        <Button android:text="√" android:onClick="onButtonClick" />
+        <Button android:text="√(" android:onClick="onButtonClick" />
         <Button android:text=")" android:onClick="onButtonClick" />
         <Button android:text="(" android:onClick="onButtonClick" />
 

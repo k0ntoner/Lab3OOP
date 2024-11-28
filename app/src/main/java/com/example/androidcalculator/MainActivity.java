@@ -2,25 +2,16 @@ package com.example.androidcalculator;
 
 import android.os.Bundle;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import androidx.appcompat.app.AppCompatActivity;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
     private TextView tvResult;
-    private
+    private Expression expression=new Expression();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,30 +30,32 @@ public class MainActivity extends AppCompatActivity {
                 calculateResult();
                 break;
             case "C":
-                input.setLength(0);
+                expression=new Expression();
                 tvResult.setText("0");
                 break;
-            case "sin(":
-                tvResult.setTest(input.toString());
-            default:
-                input.append(buttonText);
-                tvResult.setText(input.toString());
+            case "(":
+                expression.openExpression();
+                tvResult.setText(expression.toString());
                 break;
+            case ")":
+                expression.closeExpression();
+                tvResult.setText(expression.toString());
+                break;
+            case "+":
+                expression.addOperand(buttonText);
+                tvResult.setText(expression.toString());
+                break;
+            default:
+                //numbers
+                expression.addNumber(buttonText);
+                tvResult.setText(expression.toString());
+
         }
     }
     private void calculateResult() {
-        try {
-            double result = evaluateExpression(input.toString());
-            tvResult.setText(String.valueOf(result));
-            input.setLength(0);
-        } catch (Exception e) {
-            tvResult.setText("Error");
-        }
+
     }
     private double evaluateExpression(String expression) {
-        double result=0;
-        if (expression.contains("sin")){
-
-        }
+        return 0;
     }
 }
