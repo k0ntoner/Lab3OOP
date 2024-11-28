@@ -6,7 +6,6 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <!-- Поле для відображення введеного виразу та результату -->
     <TextView
         android:id="@+id/tvResult"
         android:layout_width="match_parent"
@@ -17,14 +16,12 @@
         android:padding="16dp"
         android:text="0" />
 
-    <!-- Кнопки калькулятора -->
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:columnCount="4"
         android:layout_marginTop="16dp">
 
-        <!-- Числові кнопки -->
         <Button android:text="7" android:onClick="onButtonClick" />
         <Button android:text="8" android:onClick="onButtonClick" />
         <Button android:text="9" android:onClick="onButtonClick" />
@@ -45,13 +42,12 @@
         <Button android:text="=" android:onClick="onButtonClick" />
         <Button android:text="+" android:onClick="onButtonClick" />
 
-        <!-- Наукові кнопки -->
         <Button android:text="sin(" android:onClick="onButtonClick" />
         <Button android:text="cos(" android:onClick="onButtonClick" />
         <Button android:text="log(" android:onClick="onButtonClick" />
         <Button android:text="√(" android:onClick="onButtonClick" />
-        <Button android:text=")" android:onClick="onButtonClick" />
         <Button android:text="(" android:onClick="onButtonClick" />
+        <Button android:text=")" android:onClick="onButtonClick" />
 
     </GridLayout>
 </LinearLayout>

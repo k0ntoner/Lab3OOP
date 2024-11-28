@@ -27,21 +27,50 @@ public class MainActivity extends AppCompatActivity {
 
         switch (buttonText) {
             case "=":
-                calculateResult();
+                tvResult.setText(Double.toString(expression.calculateResult()));
+                expression=new Expression();
                 break;
             case "C":
                 expression=new Expression();
                 tvResult.setText("0");
                 break;
             case "(":
-                expression.openExpression();
+                expression.openExpression("(");
                 tvResult.setText(expression.toString());
                 break;
             case ")":
                 expression.closeExpression();
                 tvResult.setText(expression.toString());
                 break;
+            case "sin(":
+                expression.openExpression("sin(");
+                tvResult.setText(expression.toString());
+                break;
+            case "cos(":
+                expression.openExpression("cos(");
+                tvResult.setText(expression.toString());
+                break;
+            case "log(":
+                expression.openExpression("log(");
+                tvResult.setText(expression.toString());
+                break;
+            case "√(":
+                expression.openExpression("√(");
+                tvResult.setText(expression.toString());
+                break;
             case "+":
+                expression.addOperand(buttonText);
+                tvResult.setText(expression.toString());
+                break;
+            case "-":
+                expression.addOperand(buttonText);
+                tvResult.setText(expression.toString());
+                break;
+            case "/":
+                expression.addOperand(buttonText);
+                tvResult.setText(expression.toString());
+                break;
+            case "*":
                 expression.addOperand(buttonText);
                 tvResult.setText(expression.toString());
                 break;
@@ -51,11 +80,5 @@ public class MainActivity extends AppCompatActivity {
                 tvResult.setText(expression.toString());
 
         }
-    }
-    private void calculateResult() {
-
-    }
-    private double evaluateExpression(String expression) {
-        return 0;
     }
 }
