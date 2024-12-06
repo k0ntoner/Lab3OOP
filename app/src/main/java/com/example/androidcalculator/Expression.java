@@ -158,12 +158,12 @@ public class Expression {
                 prevMember.setNumber(number.toString());
             } else if ("-".equals(copyMembers.get(i).getOperand())) {
                 Member prevMember = results.get(i - 1);
-                Double number = prevMember.calculateResult() - currMember.calculateResult();
+                Double number =-( prevMember.calculateResult() + currMember.calculateResult());
                 prevMember.setNumber(number.toString());
             }
         }
         if("-".equals(results.get(0).getOperand())){
-            return Double.parseDouble(results.get(0).getNumber())*-1;
+            return Double.parseDouble(results.get(0).getNumber());
         }
         return Double.parseDouble(results.get(0).getNumber());
 
@@ -183,7 +183,7 @@ public class Expression {
         for(int i=0; i<members.size();i++){
             result+=members.get(i).toString();
             if(i==0) {
-                result=result.substring(1);
+                result=result;
             }
         }
         if(!isOpen){
